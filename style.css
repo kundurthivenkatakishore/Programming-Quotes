@@ -1,0 +1,47 @@
+.heading-container{
+    background: linear-gradient(to right,white,#00FF7F,white);
+    height: 150px;
+    width: 100%;
+    text-align: center;
+}
+.heading-container img{
+    margin-top: 10px;
+}
+.heading-container h1{
+    display: inline;
+    font-size: 30px;
+}
+#mainContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    background-color: #00FF7F;
+    align-items: center;
+}
+.container{
+    background:linear-gradient(to right,white,red);
+    width: 80%;
+    font-size: 20px;
+    font-style: italic;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+}
+.container:hover,.container:active{
+    font-size: 40px;
+}
+@media screen and (min-width: 400px) {
+    body {
+      background-color:DodgerBlue;
+    }
+  }
+/*.container{
+        background: linear-gradient(to right,white,red);
+        transition: width 4s height 4s;
+}
+.container:hover{
+        width: 90%;
+        height: 130px;
+}*/
