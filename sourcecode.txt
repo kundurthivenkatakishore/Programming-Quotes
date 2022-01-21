@@ -1,0 +1,107 @@
+HTML
+
+code:
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programming Quotes</title>
+    <link rel="shortcut icon" 
+    href="https://e7.pngegg.com/pngimages/94/131/png-clipart-motivation-famous-quotes-computer-icons-quotation-game-motivation-miscellaneous-text.png">
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+CSS
+
+code:
+
+.heading-container{
+    background: linear-gradient(to right,white,#00FF7F,white);
+    height: 150px;
+    width: 100%;
+    text-align: center;
+}
+.heading-container img{
+    margin-top: 10px;
+}
+.heading-container h1{
+    display: inline;
+    font-size: 30px;
+}
+#mainContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    background-color: #00FF7F;
+    align-items: center;
+}
+.container{
+    background:linear-gradient(to right,white,red);
+    width: 80%;
+    font-size: 20px;
+    font-style: italic;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+}
+.container:hover,.container:active{
+    font-size: 40px;
+}
+@media screen and (min-width: 400px) {
+    body {
+      background-color:DodgerBlue;
+    }
+  }
+/*.container{
+        background: linear-gradient(to right,white,red);
+        transition: width 4s height 4s;
+}
+.container:hover{
+        width: 90%;
+        height: 130px;
+}*/
+
+JavaScript
+
+code:
+
+//writing to the body of the page using javascript 
+document.body.innerHTML=`<div class="heading-container">
+<h1>Edsger W. Dijkstra-Programming Quotes</h1>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Edsger_Wybe_Dijkstra.jpg/220px-Edsger_Wybe_Dijkstra.jpg" width="100px" height="100px">
+</div>
+<div id="mainContainer" class="maincontainer"></div>`
+//getting quotes using function
+const getQuotes=async ()=>{
+  try{
+      const data=await fetch("https://programming-quotes-api.herokuapp.com/quotes/author/Edsger%20W.%20Dijkstra")
+      const quotes=await data.json();
+      console.log(quotes)
+      mainContainer.innerHTML="";
+      quotes.forEach((quote) => {
+        displayQuote(quote);
+      });
+  }
+  catch(error){
+    console.log(error);
+  }
+}
+getQuotes();
+//using function to display the data
+const displayQuote=(obj)=>{
+  mainContainer.innerHTML+=
+  `<div class="container">
+    <p>\"${obj.en}\"</p>
+  </div>`
+}
